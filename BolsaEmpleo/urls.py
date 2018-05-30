@@ -19,5 +19,6 @@ from aspirante.views import index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^aspirante/', include('aspirante.urls')),
     url(r'^$', index),
 ]
