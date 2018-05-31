@@ -1,5 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block title %}App Aspirante {% endblock %}
-{% block header %}<h4>Header del index de Aspirante </h4>{% endblock %}
-
+{% block header %}<h4>Page Principal Aspirante </h4>{% endblock %}
+{% block content %}
+<a class="btn btn-primary" href="{% url 'aspirante:congreso_listar' %}">Congresos</a>
+{% endblock %}

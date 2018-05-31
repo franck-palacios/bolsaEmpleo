@@ -16,5 +16,5 @@ class CongresoForm(forms.ModelForm):
         widgets ={
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
-            'fecha':forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha':forms.DateInput(attrs={'class': 'form-control'}),
         }

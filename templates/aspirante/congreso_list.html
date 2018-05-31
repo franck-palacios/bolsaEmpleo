@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'aspirante:congreso_crear'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Fecha</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if congresos %}
+    {% for congr in congresos %}
+    <tr>
+        <td>{{ congr.nombre }}</td>
+        <td>{{ congr.descripcion }}</td>
+        <td>{{ congr.fecha }}</td>
+        <td>
+        <a class="btn btn-primary" href="{% url 'aspirante:congreso_editar' congr.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'aspirante:congreso_eliminar' congr.id %}">Editar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}
