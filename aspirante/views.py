@@ -3,10 +3,12 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from aspirante.forms import CongresoForm
+from  django.core.urlresolvers import reverse_lazy
+from aspirante.forms import CongresoForm, AspiranteForm
 
+from  django.views.generic import ListView, CreateView, UpdateView, DeleteView
 # Create your views here.
-from aspirante.models import Congreso
+from aspirante.models import Congreso, Aspirante
 
 
 def index(request):
@@ -44,3 +46,31 @@ def congreso_delete(request, id_congreso):
         congreso.delete()
         return redirect('aspirante:congreso_listar')
     return render(request, 'aspirante/congreso_delete.html', {'congreso': congreso})
+
+#Vistas basadas en clases
+class CongresoList (ListView):
+    model = Congreso
+    template_name = 'aspirante/congreso_list.html'
+
+class AspiranteList (ListView):
+    model = Aspirante
+    template_name = 'aspirante/aspirante/aspirante_list.html'
+
+class AspiranteCreate (CreateView):
+    model = Aspirante
+    form_class = AspiranteForm
+    #second_form_class =
+    template_name = 'aspirante/aspirante/aspirante_form.html'
+    success_url = reverse_lazy ('aspirante:aspirante_list')
+
+class AspiranteUpdate (UpdateView):
+    model = Aspirante
+    form_class = AspiranteForm
+    # second_form_class =
+    template_name = 'aspirante/aspirante/aspirante_form.html'
+    success_url = reverse_lazy('aspirante:aspirante_list')
+
+class AspiranteDelete(DeleteView):
+    model = Aspirante
+    template_name = 'aspirante/aspirante/aspirante_delete.html'
+    success_url = reverse_lazy('aspirante:aspirante_list')

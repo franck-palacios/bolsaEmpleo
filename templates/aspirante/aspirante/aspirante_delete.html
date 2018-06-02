@@ -1,13 +1,13 @@
 {% extends 'base/base.html' %}
-{% block title %}Congreso {% endblock %}
+{% block title %}Aspirante {% endblock %}
 
 <div class="container">
-{% block header %} <h2>Eliminar Congreso</h2> {% endblock %}
+{% block header %} <h2>Eliminar Aspirante</h2> {% endblock %}
 </div>
 {% block content %}
     <form method="post">
     {% csrf_token %}
-        <h3>Desea eliminar el congreso {{ congreso.nombre }}</h3>
+        <h3>Desea eliminar el aspirante {{ object.primer_nombre }}</h3>
     <button class="btn btn-danger" type="submit">Si, eliminar</button>
     <a class="btn btn-default" href="{%  url 'aspirante:congreso_listar' %}">Cancelar</a>
     </form>

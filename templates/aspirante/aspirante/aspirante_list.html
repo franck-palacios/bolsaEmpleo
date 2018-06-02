@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'aspirante:aspirante_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Primer Nombre</td>
+        <td>Primer Apellido</td>
+        <td>Genero</td>
+        <td>Fecha de Nacimiento</td>
+        <td>DUI</td>
+        <td>Telefono</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for aspirante in object_list %}
+    <tr>
+        <td>{{ aspirante.primer_nombre }}</td>
+        <td>{{ aspirante.primer_apellido }}</td>
+        <td>{{ aspirante.genero }}</td>
+        <td>{{ aspirante.fecha_nacimiento }}</td>
+        <td>{{ aspirante.dui }}</td>
+        <td>{{ aspirante.telefono }}</td>s
+        <td>
+        <a class="btn btn-primary" href="{% url 'aspirante:aspirante_editar' aspirante.id%}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'aspirante:aspirante_eliminar' aspirante.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}

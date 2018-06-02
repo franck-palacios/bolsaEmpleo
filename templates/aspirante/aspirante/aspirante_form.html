@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block title %}Aspirante {% endblock %}
+
+<div class="container">
+{% block header %}
+<h2>Datos Personales Aspirante</h2>
+{% endblock %}
+</div>
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+        <!--<div class="row">
+            <div class="col-md-4 ">
+                <label for="{{ form.primer_nombre.name }}">Primer Nombre</label>
+                {{ form.primer_nombre }}
+            </div>
+
+            <div class="col-md-4 ">
+                <label for="{{ form.segundo_nombre.name }}">Segundo Nombre</label>
+                {{ form.segundo_nombre }}
+            </div>
+        </div>-->
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+    </form>
+{% endblock %}
+

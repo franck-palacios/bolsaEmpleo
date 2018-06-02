@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', #driver to DB(mysql)
         'NAME': 'bolsa_empleo', #name to DB
-        'USER': 'root', #user to DB
-        'PASSWORD': 'new470312', #pass to DB
+        'USER': 'bad115', #user to DB
+        'PASSWORD': 'bolsa_empleo', #pass to DB
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306', #port to DB
         'STORAGE_ENGINE': 'INNODB',

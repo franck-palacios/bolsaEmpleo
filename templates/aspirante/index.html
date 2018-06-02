@@ -3,5 +3,6 @@
 {% block title %}App Aspirante {% endblock %}
 {% block header %}<h4>Page Principal Aspirante </h4>{% endblock %}
 {% block content %}
-<a class="btn btn-primary" href="{% url 'aspirante:congreso_listar' %}">Congresos</a>
+    <a class="btn btn-primary" href="{% url 'aspirante:congreso_listar' %}">Congresos</a>
+    <a class="btn btn-primary" href="{% url 'aspirante:aspirante_list' %}">Aspirantes</a>
 {% endblock %}
