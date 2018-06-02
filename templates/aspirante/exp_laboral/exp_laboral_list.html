@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'aspirante:exp_laboral_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre Empresa</td>
+        <td>Funcion</td>
+        <td>Fecha Inicio</td>
+        <td>Fecha Fin</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for experiencia in object_list %}
+    <tr>
+        <td>{{ experiencia.nombre_empresa}}</td>
+        <td>{{ experiencia.funcion }}</td>
+        <td>{{ experiencia.desde }}</td>
+        <td>{{ experiencia.hasta }}</td>
+        <td>
+        <a class="btn btn-primary" href="{% url 'aspirante:exp_laboral_editar' experiencia.id%}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'aspirante:exp_laboral_eliminar' experiencia.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}

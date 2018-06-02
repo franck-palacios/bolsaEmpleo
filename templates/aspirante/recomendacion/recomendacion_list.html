@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'aspirante:recomendacion_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Telefono</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for recomen in object_list %}
+    <tr>
+        <td>{{ recomen.nombre }}</td>
+        <td>{{ recomen.descripcion }}</td>
+        <td>{{ recomen.telefono }}</td>
+        <td>
+        <a class="btn btn-primary" href="{% url 'aspirante:recomendacion_editar' recomen.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'aspirante:recomendacion_eliminar' recomen.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}

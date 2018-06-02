@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block title %}Experiencia Laboral {% endblock %}
+
+<div class="container">
+{% block header %} <h2>Eliminar Experiencia Laboral</h2> {% endblock %}
+</div>
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+        <h3>Desea eliminar la experiencia de la empresa {{ object.nombre_empresa }}</h3>
+    <button class="btn btn-danger" type="submit">Si, eliminar</button>
+    <a class="btn btn-default" href="{%  url 'aspirante:exp_laboral_list' %}">Cancelar</a>
+    </form>
+{% endblock %}

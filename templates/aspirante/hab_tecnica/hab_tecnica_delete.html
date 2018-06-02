@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+{% block title %}Habilidad Tecnica {% endblock %}
+
+<div class="container">
+{% block header %} <h2>Eliminar Habilidad Tecnica</h2> {% endblock %}
+</div>
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+        <h3>Desea eliminar la habilidad {{ object.nombre }}</h3>
+    <button class="btn btn-danger" type="submit">Si, eliminar</button>
+    <a class="btn btn-default" href="{%  url 'aspirante:hab_tecnica_list' %}">Cancelar</a>
+    </form>
+{% endblock %}

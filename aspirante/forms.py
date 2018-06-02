@@ -1,5 +1,6 @@
 from django import forms
-from aspirante.models import Congreso, Aspirante
+from aspirante.models import Congreso, Aspirante, Exp_Laboral, Habilidad_Tecnica, Libro, \
+    Logro, Recomendacion
 class CongresoForm(forms.ModelForm):
     class Meta:
         model=Congreso
@@ -7,16 +8,19 @@ class CongresoForm(forms.ModelForm):
             'nombre',
             'descripcion',
             'fecha',
+            'aspirante',
         ]
         labels={
             'nombre':'Nombre',
             'descripcion':'Descripcion',
-            'fecha': 'Fecha de Obtencion'
+            'fecha': 'Fecha de Obtencion',
+            'aspirante': 'Aspirante'
         }
         widgets ={
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
             'fecha':forms.DateInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'})
         }
 
 class AspiranteForm (forms.ModelForm):
@@ -74,4 +78,117 @@ class AspiranteForm (forms.ModelForm):
             'correo': forms.EmailInput(attrs={'class': 'form-control'}),
             'facebook': forms.TextInput(attrs={'class': 'form-control'}),
             'twitter': forms.TextInput(attrs={'class': 'form-control'})
+        }
+
+class ExperienciaLaboralForm(forms.ModelForm):
+    class Meta:
+        model=Exp_Laboral
+        fields=[
+            'nombre_empresa',
+            'funcion',
+            'telefono_empresa',
+            'desde',
+            'hasta',
+            'aspirante',
+        ]
+        labels={
+            'nombre_empresa': 'Nombre de la Empresa',
+            'funcion': 'Funcion Desempeniada',
+            'telefono_empresa': 'Tel. Empresa',
+            'desde': 'Fecha de Inicio',
+            'hasta': 'Fecha de Terminacion',
+            'aspirante': 'Aspirante'
+        }
+        widgets ={
+            'nombre_empresa': forms.TextInput(attrs={'class': 'form-control'}),
+            'funcion':forms.TextInput(attrs={'class': 'form-control'}),
+            'telefono_empresa': forms.TextInput(attrs={'class': 'form-control'}),
+            'desde':forms.DateInput(attrs={'class': 'form-control'}),
+            'hasta': forms.DateInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'})
+        }
+
+class HabilidadTecnicaForm(forms.ModelForm):
+    class Meta:
+        model=Habilidad_Tecnica
+        fields=[
+            'nombre',
+            'descripcion',
+            'aspirante',
+        ]
+        labels={
+            'nombre':'Nombre',
+            'descripcion':'Descripcion',
+            'aspirante': 'Aspirante'
+        }
+        widgets ={
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'})
+        }
+
+class LibroForm(forms.ModelForm):
+    class Meta:
+        model=Libro
+        fields=[
+            'nombre',
+            'isbn',
+            'fecha',
+            'aspirante',
+        ]
+        labels={
+            'nombre':'Nombre',
+            'isbn':'ISBN',
+            'fecha': 'Fecha',
+            'aspirante': 'Aspirante'
+        }
+        widgets ={
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'isbn':forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha':forms.DateInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'})
+        }
+
+class LogroForm(forms.ModelForm):
+    class Meta:
+        model=Logro
+        fields=[
+            'nombre',
+            'descripcion',
+            'fecha',
+            'aspirante',
+        ]
+        labels={
+            'nombre':'Nombre',
+            'descripcion':'Descripcion',
+            'fecha': 'Fecha',
+            'aspirante': 'Aspirante'
+        }
+        widgets ={
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
+            'fecha':forms.DateInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'})
+        }
+
+class RecomendacionForm(forms.ModelForm):
+    class Meta:
+        model=Recomendacion
+        fields=[
+            'nombre',
+            'descripcion',
+            'telefono',
+            'aspirante',
+        ]
+        labels={
+            'nombre':'Nombre',
+            'descripcion':'Descripcion',
+            'telefono': 'Tel. Contacto',
+            'aspirante': 'Aspirante'
+        }
+        widgets ={
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
+            'telefono':forms.TextInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'})
         }

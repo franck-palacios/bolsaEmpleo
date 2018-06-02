@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'aspirante:libro_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>ISBN</td>
+        <td>Fecha</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for libro in object_list %}
+    <tr>
+        <td>{{ libro.nombre}}</td>
+        <td>{{ libro.isbn }}</td>
+        <td>{{ libro.fecha }}</td>
+        <td>
+            <a class="btn btn-primary" href="{% url 'aspirante:libro_editar' libro.id%}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'aspirante:libro_eliminar' libro.id %}">Eliminar</a
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}

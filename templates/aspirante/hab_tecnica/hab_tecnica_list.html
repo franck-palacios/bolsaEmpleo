@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'aspirante:hab_tecnica_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for habilidad in object_list %}
+    <tr>
+        <td>{{ habilidad.nombre}}</td>
+        <td>{{ habilidad.descripcion }}</td>
+        <td>
+            <a class="btn btn-primary" href="{% url 'aspirante:hab_tecnica_editar' habilidad.id%}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'aspirante:hab_tecnica_eliminar' habilidad.id %}">Eliminar</a
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}
