@@ -62,3 +62,20 @@ class Recomendacion(models.Model):
     telefono = models.CharField(max_length=9)
     aspirante = models.ForeignKey('Aspirante', null=True, blank=True, on_delete=models.CASCADE)
 
+class Certificacion(models.Model):
+    nombre = models.CharField(max_length=40)
+    descripcion = models.CharField(max_length=200)
+    desde = models.DateField()
+    hasta = models.DateField()
+    institucion = models.CharField(max_length=35)
+    tel_institucion = models.CharField(max_length=9)
+    aspirante = models.ForeignKey('Aspirante', null=True, blank=True, on_delete=models.CASCADE)
+
+class Conoc_Academico(models.Model):
+    desde = models.DateField()
+    hasta = models.DateField()
+    titulo = models.CharField(max_length=100)
+    institucion = models.CharField(max_length=35)
+    codigo = models.CharField(max_length=10)
+    aspirante = models.ForeignKey('Aspirante', null=True, blank=True, on_delete=models.CASCADE)
+

@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% block title %}Conocimiento Academico {% endblock %}
+
+<div class="container">
+{% block header %}
+<h2>Nuevo Conocimiento Academico</h2>
+{% endblock %}
+</div>
+{% block content %}
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+    </form>
+{% endblock %}

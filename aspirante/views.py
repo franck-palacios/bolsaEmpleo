@@ -5,12 +5,13 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from  django.core.urlresolvers import reverse_lazy
 from aspirante.forms import CongresoForm, AspiranteForm, ExperienciaLaboralForm, \
-    HabilidadTecnicaForm, LibroForm, LogroForm, RecomendacionForm
+    HabilidadTecnicaForm, LibroForm, LogroForm, RecomendacionForm, CertificacionForm, \
+    ConocimientoAcademicoForm
 
 from  django.views.generic import ListView, CreateView, UpdateView, DeleteView
 # Create your views here.
 from aspirante.models import Congreso, Aspirante, Exp_Laboral, Habilidad_Tecnica, Libro, \
-    Logro, Recomendacion
+    Logro, Recomendacion, Certificacion, Conoc_Academico
 
 def index(request):
     return render(request, 'aspirante/index.html')
@@ -189,3 +190,48 @@ class RecomendacionDelete(DeleteView):
     model = Recomendacion
     template_name = 'aspirante/recomendacion/recomendacion_delete.html'
     success_url = reverse_lazy('aspirante:recomendacion_list')
+
+################# CERTIFICACION ######################
+class CertificacionList(ListView):
+    model = Certificacion
+    template_name = 'aspirante/certificacion/certificacion_list.html'
+
+class CertificacionCreate(CreateView):
+    model = Certificacion
+    form_class = CertificacionForm
+    template_name = 'aspirante/certificacion/certificacion_form.html'
+    success_url = reverse_lazy('aspirante:certificacion_list')
+
+class CertificacionUpdate(UpdateView):
+    model = Certificacion
+    form_class = CertificacionForm
+    template_name = 'aspirante/certificacion/certificacion_form.html'
+    success_url = reverse_lazy('aspirante:certificacion_list')
+
+class CertificacionDelete(DeleteView):
+    model = Certificacion
+    template_name = 'aspirante/certificacion/certificacion_delete.html'
+    success_url = reverse_lazy('aspirante:certificacion_list')
+
+################# CONOCIMIENTO ACADEMICO ######################
+class ConocAcademicoList(ListView):
+    model = Conoc_Academico
+    template_name ='aspirante/conoc_academico/conoc_academico_list.html'
+
+class ConocAcademicoCreate(CreateView):
+    model = Conoc_Academico
+    form_class = ConocimientoAcademicoForm
+    template_name = 'aspirante/conoc_academico/conoc_academico_form.html'
+    success_url = reverse_lazy('aspirante:conoc_academico_list')
+
+class ConocAcademicoUpdate(UpdateView):
+    model = Conoc_Academico
+    form_class = ConocimientoAcademicoForm
+    template_name = 'aspirante/conoc_academico/conoc_academico_form.html'
+    success_url = reverse_lazy('aspirante:conoc_academico_list')
+
+class ConocAcademicoDelete(DeleteView):
+    model = Conoc_Academico
+    template_name = 'aspirante/conoc_academico/conoc_academico_delete.html'
+    success_url = reverse_lazy('aspirante:conoc_academico_list')
+

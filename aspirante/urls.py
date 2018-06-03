@@ -6,7 +6,9 @@ from aspirante.views import congreso_view, congreso_list, congreso_edit, congres
         HabilidadTecnicaList, HabilidadTecnicaCreate, HabilidadTecnicaUpdate, HabilidadTecnicaDelete, \
         LibroList, LibroCreate, LibroUpdate, LibroDelete, \
         LogroList, LogroCreate, LogroUpdate, LogroDelete, \
-        RecomendacionList, RecomendacionCreate, RecomendacionUpdate, RecomendacionDelete
+        RecomendacionList, RecomendacionCreate, RecomendacionUpdate, RecomendacionDelete, \
+        CertificacionList, CertificacionCreate, CertificacionUpdate, CertificacionDelete, \
+        ConocAcademicoList, ConocAcademicoCreate, ConocAcademicoUpdate, ConocAcademicoDelete
 
 urlpatterns = [
         url(r'^$', views.index, name='index'),
@@ -45,4 +47,15 @@ urlpatterns = [
         url(r'^create_recomendacion$', RecomendacionCreate.as_view(), name='recomendacion_create'),
         url(r'^edit_recomendacion/(?P<pk>\d+)/$', RecomendacionUpdate.as_view(), name='recomendacion_editar'),
         url(r'^delete_recomendacion/(?P<pk>\d+)/$', RecomendacionDelete.as_view(), name='recomendacion_eliminar'),
+
+        url(r'^list_certificaciones$', CertificacionList.as_view(), name='certificacion_list'),
+        url(r'^create_certificacion$', CertificacionCreate.as_view(), name='certificacion_create'),
+        url(r'^edit_certificacion/(?P<pk>\d+)/$', CertificacionUpdate.as_view(), name='certificacion_editar'),
+        url(r'^delete_certificacion/(?P<pk>\d+)/$', CertificacionDelete.as_view(), name='certificacion_eliminar'),
+
+        url(r'^list_conocimientos$', ConocAcademicoList.as_view(), name='conoc_academico_list'),
+        url(r'^create_conoc_academico$', ConocAcademicoCreate.as_view(), name='conoc_academico_create'),
+        url(r'^edit_conoc_academico/(?P<pk>\d+)/$', ConocAcademicoUpdate.as_view(), name='conoc_academico_editar'),
+        url(r'^delete_conoc_academico/(?P<pk>\d+)/$', ConocAcademicoDelete.as_view(), name='conoc_academico_eliminar'),
+
 ]

@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'aspirante:certificacion_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Institucion</td>
+        <td>Tel. Institucion</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for cert in object_list %}
+    <tr>
+        <td>{{ cert.nombre }}</td>
+        <td>{{ cert.descripcion }}</td>
+        <td>{{ cert.institucion }}</td>
+        <td>{{ cert.tel_institucion }}</td>
+        <td>
+        <a class="btn btn-primary" href="{% url 'aspirante:certificacion_editar' cert.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'aspirante:certificacion_eliminar' cert.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}

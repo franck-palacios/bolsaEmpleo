@@ -1,6 +1,6 @@
 from django import forms
 from aspirante.models import Congreso, Aspirante, Exp_Laboral, Habilidad_Tecnica, Libro, \
-    Logro, Recomendacion
+    Logro, Recomendacion, Certificacion, Conoc_Academico
 class CongresoForm(forms.ModelForm):
     class Meta:
         model=Congreso
@@ -190,5 +190,64 @@ class RecomendacionForm(forms.ModelForm):
             'nombre': forms.TextInput(attrs={'class': 'form-control'}),
             'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
             'telefono':forms.TextInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'})
+        }
+
+class CertificacionForm(forms.ModelForm):
+    class Meta:
+        model=Certificacion
+        fields=[
+            'nombre',
+            'descripcion',
+            'desde',
+            'hasta',
+            'institucion',
+            'tel_institucion',
+            'aspirante',
+        ]
+        labels={
+            'nombre':'Nombre',
+            'descripcion':'Descripcion',
+            'desde': 'Fecha de Inicio',
+            'hasta': 'Fecha de Culminacion',
+            'institucion': 'Institucion',
+            'tel_institucion': 'Tel. de la Institucion',
+            'aspirante': 'Aspirante'
+        }
+        widgets ={
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion':forms.TextInput(attrs={'class': 'form-control'}),
+            'desde': forms.DateInput(attrs={'class': 'form-control'}),
+            'hasta': forms.DateInput(attrs={'class': 'form-control'}),
+            'institucion': forms.TextInput(attrs={'class':'form-control'}),
+            'tel_institucion':forms.TextInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'})
+        }
+
+class ConocimientoAcademicoForm(forms.ModelForm):
+    class Meta:
+        model=Conoc_Academico
+        fields=[
+            'desde',
+            'hasta',
+            'titulo',
+            'institucion',
+            'codigo',
+            'aspirante',
+        ]
+        labels={
+            'desde': 'Fecha de Inicio',
+            'hasta': 'Fecha de Culminacion',
+            'titulo': 'Titulo Obtenido',
+            'institucion': 'Institucion',
+            'codigo': 'Codigo',
+            'aspirante': 'Aspirante'
+        }
+        widgets ={
+            'desde': forms.DateInput(attrs={'class': 'form-control'}),
+            'hasta': forms.DateInput(attrs={'class': 'form-control'}),
+            'titulo': forms.TextInput(attrs={'class':'form-control'}),
+            'institucion': forms.TextInput(attrs={'class':'form-control'}),
+            'codigo':forms.TextInput(attrs={'class': 'form-control'}),
             'aspirante': forms.Select(attrs={'class': 'form-control'})
         }
