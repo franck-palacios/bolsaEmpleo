@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+
+{% block title %}App Empresa {% endblock %}
+{% block header %}<h4>Page Principal Empresas </h4>{% endblock %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'empresa:empresas_list' %}">Empresas</a>
+    <a class="btn btn-primary" href="{% url 'empresa:puestos_list' %}">Puestos</a>
+    <a class="btn btn-primary" href="{% url 'empresa:ofertas_list' %}">Ofertas</a>
+{% endblock %}

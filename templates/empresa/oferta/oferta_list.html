@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'empresa:oferta_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Puesto</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for oferta in object_list %}
+    <tr>
+        <td>{{ oferta.nombre }}</td>
+        <td>{{ oferta.descripcion }}</td>
+        <td>{{ oferta.puesto.nombre}}</td>
+        <td>
+        <a class="btn btn-primary" href="{% url 'empresa:oferta_editar' oferta.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'empresa:oferta_eliminar' oferta.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}
