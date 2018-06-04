@@ -1,9 +1,11 @@
 from __future__ import unicode_literals
-from django.shortcuts import render
+from django.shortcuts import render, redirect, render_to_response, HttpResponseRedirect
 from  django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from empresa.models import Empresa, Puesto, Oferta
-from empresa.forms import EmpresaForm, PuestoForm, OfertaForm
+from empresa.forms import EmpresaForm, PuestoForm, OfertaForm, EmailForm
+from django.core.mail import EmailMessage
+from django.template import RequestContext
 
 def index(request):
     return render(request, 'empresa/index.html')
@@ -73,3 +75,17 @@ class OfertaDelete(DeleteView):
     model = Oferta
     template_name = 'empresa/oferta/oferta_delete.html'
     success_url = reverse_lazy('empresa:ofertas_list')
+
+def senMail(request):
+    if request.method =='POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            asunto = 'Este es un mensaje de prueba desde APP Django'
+            mensaje = form.cleaned_data['mensaje']
+            correo = form.cleaned_data['correo']
+            mail = EmailMessage(asunto, mensaje, to=[correo])
+            mail.send()
+        return redirect('empresa:index')
+    else:
+        form = EmailForm()
+    return  render(request, 'empresa/send_email/send_mail.html', {'form':form})

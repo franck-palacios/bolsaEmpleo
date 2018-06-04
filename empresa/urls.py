@@ -2,7 +2,7 @@ from django.conf.urls import url
 from . import views
 from empresa.views import EmpresaList, EmpresaCreate, EmpresaUpdate, EmpresaDelete, \
     PuestoList, PuestoCreate, PuestoUpdate, PuestoDelete, \
-    OfertaList, OfertaCreate, OfertaUpdate, OfertaDelete
+    OfertaList, OfertaCreate, OfertaUpdate, OfertaDelete, senMail
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^edit_oferta/(?P<pk>\d+)/$', OfertaUpdate.as_view(), name='oferta_editar'),
     url(r'^delete_oferta/(?P<pk>\d+)/$', OfertaDelete.as_view(), name='oferta_eliminar'),
 
+    url(r'^send_mail/', senMail, name='email_send'),
 ]

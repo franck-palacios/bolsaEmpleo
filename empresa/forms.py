@@ -60,3 +60,7 @@ class OfertaForm(forms.ModelForm):
             'puesto': forms.Select(attrs={'class': 'form-control'})
 
         }
+
+class EmailForm(forms.Form):
+    correo =forms.EmailField()
+    mensaje = forms.CharField()
