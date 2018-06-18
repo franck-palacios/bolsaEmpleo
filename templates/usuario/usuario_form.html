@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+{% block title %}Registrar Usuario {% endblock %}
+
+<div class="container">
+{% block header %}
+<h2>Nuevo Usuario</h2>
+{% endblock %}
+</div>
+{% block content %}
+<form method="post">
+	{% csrf_token %}
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label >Nombre de usuario</label>
+				<input class="form-control" type="text" name="username" required>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label >Correo</label>
+				<input class="form-control" type="text" name="email" required>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<label >Contraseña</label>
+				<input class="form-control" type="password" name="password1" required>
+			</div>
+		</div>
+	</div>
+	{{ form2.as_p }}
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="form-group">
+				<button class="btn btn-primary "type="submit">Guardar</button>
+			</div>
+		</div>
+	</div>
+
+</form>
+{% endblock %}

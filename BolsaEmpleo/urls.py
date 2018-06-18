@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from aspirante.views import index
+from django.contrib.auth.views import login
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^aspirante/', include('aspirante.urls', namespace="aspirante")),
     url(r'^empresa/', include('empresa.urls', namespace="empresa")),
+    url(r'^usuario/', include('usuario.urls', namespace="usuario")),
+    url(r'^login/', login, {'template_name':'login.html'}, name='login'),
     url(r'^$', index),
 ]
