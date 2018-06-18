@@ -1,0 +1,14 @@
+INSERT INTO administrator_departamento  (id, nombre) VALUES (1, 'Ahuachapán');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (2, 'Cabañas');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (3, 'Chalatenango');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (4, 'Cuscatlán');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (5, 'La Libertad');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (6, 'La Paz');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (7, 'La Unión');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (8, 'Morazán');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (9, 'San Miguel');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (10, 'San Salvador');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (11, 'San Vicente');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (12, 'Santa Ana');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (13, 'Sonsonate');
+INSERT INTO administrator_departamento  (id, nombre) VALUES (14, 'Usulután');

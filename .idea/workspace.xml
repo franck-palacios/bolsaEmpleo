@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fcb0a444-6688-485d-b4ff-9dc2e9145ec9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BolsaEmpleo/settings.py" afterPath="$PROJECT_DIR$/BolsaEmpleo/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BolsaEmpleo/urls.py" afterPath="$PROJECT_DIR$/BolsaEmpleo/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aspirante/forms.py" afterPath="$PROJECT_DIR$/aspirante/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/base.html" afterPath="$PROJECT_DIR$/templates/base/base.html" />
-    </list>
+    <list default="true" id="fcb0a444-6688-485d-b4ff-9dc2e9145ec9" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/../inserMunicipios">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="261" selection-end-column="96" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="261" selection-end-column="96" />
               <folding />
             </state>
           </provider>
@@ -843,7 +837,7 @@
     <entry file="file://$PROJECT_DIR$/../inserMunicipios">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="261" selection-end-column="96" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="261" selection-end-column="96" />
           <folding />
         </state>
       </provider>
