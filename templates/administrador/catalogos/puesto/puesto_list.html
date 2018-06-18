@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'administrador:puesto_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Area de Trabajo</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for puesto in object_list %}
+    <tr>
+        <td>{{ puesto.nombre }}</td>
+        <td>{{ puesto.descripcion }}</td>
+        <td>{{ puesto.area.nombre }}</td>
+        <td>
+        <a class="btn btn-primary" href="{% url 'administrador:puesto_editar' puesto.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'administrador:puesto_eliminar' puesto.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}

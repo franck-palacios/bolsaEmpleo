@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^aspirante/', include('aspirante.urls', namespace="aspirante")),
     url(r'^empresa/', include('empresa.urls', namespace="empresa")),
+    url(r'^administrador/', include('administrator.urls', namespace="administrador")),
     url(r'^usuario/', include('usuario.urls', namespace="usuario")),
     url(r'^login/', login, {'template_name':'login.html'}, name='login'),
     url(r'^$', index),

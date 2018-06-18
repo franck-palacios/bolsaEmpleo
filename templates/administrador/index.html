@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% block title %}App Administrador {% endblock %}
+{% block header %}<h4>Page Principal Admin </h4>{% endblock %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'administrador:area_trabajo_list' %}">Catalogo Area Trabajo</a>
+    <a class="btn btn-primary" href="{% url 'administrador:puestos_list' %}">Catalogo Puestos</a>
+    <a class="btn btn-primary" href="{% url 'administrador:municipio_list' %}">Catalogo Municipios</a>
+    <a class="btn btn-primary" href="{% url 'administrador:departamento_list' %}">Catalogo Departamentos</a>
+{% endblock %}

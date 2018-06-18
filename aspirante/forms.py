@@ -67,7 +67,7 @@ class AspiranteForm (forms.ModelForm):
             'segundo_apellido': forms.TextInput(attrs={'class': 'form-control'}),
             #OPCIONES:[('F', 'Femenino'),
              #         ('M', 'Masculino')]
-            'genero': forms.Select(choices=[('F','Femenino'),('M','Masculino')]),
+            'genero': forms.Select(choices=[('F','Femenino'),('M','Masculino')],attrs={'class': 'form-control'}),
             'fecha_nacimiento': forms.DateInput(attrs={'class': 'form-control'}),
             'dui': forms.TextInput(attrs={'class': 'form-control'}),
             'nit': forms.TextInput(attrs={'class': 'form-control'}),

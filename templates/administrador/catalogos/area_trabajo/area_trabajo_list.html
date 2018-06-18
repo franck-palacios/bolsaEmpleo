@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'administrador:area_trabajo_create'%}">Nuevo</a>
+    <br>
+    <br>
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Nombre</td>
+        <td>Descripcion</td>
+        <td>Acciones</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if object_list %}
+    {% for area in object_list %}
+    <tr>
+        <td>{{ area.nombre }}</td>
+        <td>{{ area.descripcion }}</td>
+        <td>
+        <a class="btn btn-primary" href="{% url 'administrador:area_trabajo_editar' area.id %}">Editar</a>
+        <a class="btn btn-danger" href="{% url 'administrador:area_trabajo_eliminar' area.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+{% endblock %}

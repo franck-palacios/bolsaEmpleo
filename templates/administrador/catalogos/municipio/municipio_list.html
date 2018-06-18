@@ -1,0 +1,50 @@
+{% extends 'base/base.html' %}
+{% block content %}
+    <table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Nombre</td>
+        <td>Departamento</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% if items %}
+    {% for departamento in items %}
+    <tr>
+        <td>{{ departamento.id }}</td>
+        <td>{{ departamento.nombre }}</td>
+        <td>{{ departamento.departamento.nombre }}</td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+    </table>
+    {% if items.has_next or items.has_previous %}
+
+
+    <ul class="pagination">
+        {% if items.has_previous %}
+            <li><a href="?page={{ items.previous_page_number }}" class="btn btnpages"><i
+                    class="glyphicon glyphicon-chevron-left"></i></a></li>
+        {% endif %}
+        {% for page in items.paginator.page_range %}
+            <li class="{% if items.number == page %}active{% endif %}">
+                <a class="btn btnpages" href="?page={{ page }}">{{ page }}</a></li>
+        {% endfor %}
+
+        {% if items.has_next %}
+            <li>
+                <a href="?page={{ items.next_page_number }}" class="btn btnpages">
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+
+
+
+{% endif %}
+{% endblock %}
