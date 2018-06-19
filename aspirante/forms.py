@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 from django import forms
 from aspirante.models import Congreso, Aspirante, Exp_Laboral, Habilidad_Tecnica, Libro, \
     Logro, Recomendacion, Certificacion, Conoc_Academico
@@ -38,10 +40,12 @@ class AspiranteForm (forms.ModelForm):
             'nup',
             'direccion',
             'telefono',
-            'numero_casa',
+            #'numero_casa',
             'correo',
-            'facebook',
-            'twitter',
+            #'facebook',
+            #'twitter',
+            'departamento',
+            'municipio',
         ]
         labels={
             'primer_nombre':'Primer Nombre',
@@ -55,10 +59,12 @@ class AspiranteForm (forms.ModelForm):
             'nup': 'NUP',
             'direccion':'Direccion',
             'telefono':'Telefono',
-            'numero_casa':'Numero de Casa',
+            #'numero_casa':'Numero de Casa',
             'correo': 'Correo Electronico',
-            'facebook': 'Facebook',
-            'twitter': 'Twitter'
+            'departamento':'Departamento',
+            'municipio':'Municipio'
+            #'facebook': 'Facebook',
+            #'twitter': 'Twitter'
         }
         widgets={
             'primer_nombre': forms.TextInput(attrs={'class': 'form-control'}),
@@ -74,38 +80,63 @@ class AspiranteForm (forms.ModelForm):
             'nup': forms.TextInput(attrs={'class': 'form-control'}),
             'direccion': forms.TextInput(attrs={'class': 'form-control'}),
             'telefono': forms.TextInput(attrs={'class': 'form-control'}),
-            'numero_casa': forms.NumberInput(attrs={'class': 'form-control'}),
+            #'numero_casa': forms.NumberInput(attrs={'class': 'form-control'}),
             'correo': forms.EmailInput(attrs={'class': 'form-control'}),
-            'facebook': forms.TextInput(attrs={'class': 'form-control'}),
-            'twitter': forms.TextInput(attrs={'class': 'form-control'})
+            'departamento': forms.Select(attrs={'class': 'form-control'}),
+            'municipio': forms.Select(attrs={'class': 'form-control'})
+            #'facebook': forms.TextInput(attrs={'class': 'form-control'}),
+            #'twitter': forms.TextInput(attrs={'class': 'form-control'})
         }
 
 class ExperienciaLaboralForm(forms.ModelForm):
     class Meta:
         model=Exp_Laboral
         fields=[
+            'area_trabajo',
+            'puesto_trabajo',
             'nombre_empresa',
-            'funcion',
-            'telefono_empresa',
-            'desde',
-            'hasta',
+            'nombre_contacto',
+            #'funcion',
+            'telefono_contacto',
+            'correo_contacto',
+            'anios_experiencia',
+            'meses_experiencia',
+            #'desde',
+            #'hasta',
             'aspirante',
         ]
         labels={
+            'area_trabajo': 'Area de Trabajo',
+            'puesto_trabajo': 'Puesto de Trabajo',
             'nombre_empresa': 'Nombre de la Empresa',
-            'funcion': 'Funcion Desempeniada',
-            'telefono_empresa': 'Tel. Empresa',
-            'desde': 'Fecha de Inicio',
-            'hasta': 'Fecha de Terminacion',
-            'aspirante': 'Aspirante'
+            'nombre_contacto': 'Nombre de Jefe Inmediato',
+            #'funcion': 'Funcion Desempeniada',
+            'telefono_contacto': 'Tel. Jefe Inmediato',
+            'correo_contacto': 'Correo de Contacto',
+            'anios_experiencia': 'Anios de Experiencia',
+            'meses_experiencia': 'Meses de Experiencia',
+            #'desde': 'Fecha de Inicio',
+            #'hasta': 'Fecha de Terminacion',
+            'aspirante': 'Aspirante',
+            'nombre_contacto':'Nombre de un Contacto'
         }
         widgets ={
+            'area_trabajo': forms.Select(attrs={'class': 'form-control'}),
+            'puesto_trabajo':forms.Select(attrs={'class': 'form-control'}),
             'nombre_empresa': forms.TextInput(attrs={'class': 'form-control'}),
-            'funcion':forms.TextInput(attrs={'class': 'form-control'}),
-            'telefono_empresa': forms.TextInput(attrs={'class': 'form-control'}),
-            'desde':forms.DateInput(attrs={'class': 'form-control'}),
-            'hasta': forms.DateInput(attrs={'class': 'form-control'}),
-            'aspirante': forms.Select(attrs={'class': 'form-control'})
+            'nombre_contacto': forms.TextInput(attrs={'class': 'form-control'}),
+            #'funcion':forms.TextInput(attrs={'class': 'form-control'}),
+            'telefono_contacto': forms.TextInput(attrs={'class': 'form-control'}),
+            'correo_contacto': forms.EmailInput(attrs={'class': 'form-control'}),
+            'anios_experiencia': forms.NumberInput(attrs={'class': 'form-control'}),
+            'meses_experiencia': forms.Select(choices=[('1', 'Uno'), ('2', 'Dos'), ('3', 'Tres'),
+                                                       ('4', 'Cuatro'), ('5', 'Cinco'), ('6', 'Seis'),
+                                                       ('7', 'Siete'), ('8', 'Ocho'), ('9', 'Nueve'),
+                                                       ('10', 'Diez'), ('11', 'Once'), ('12', 'Doce')], attrs={'class': 'form-control'}),
+            #'desde':forms.DateInput(attrs={'class': 'form-control'}),
+            #'hasta': forms.DateInput(attrs={'class': 'form-control'}),
+            'aspirante': forms.Select(attrs={'class': 'form-control'}),
+            'nombre_contacto': forms.TextInput(attrs={'class': 'form-control'})
         }
 
 class HabilidadTecnicaForm(forms.ModelForm):

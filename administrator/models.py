@@ -23,7 +23,13 @@ class Puesto(models.Model):
 class Departamento(models.Model):
     nombre = models.CharField(max_length=40, null=False)
 
+    def __str__(self):
+        return '{}'.format(self.nombre).encode("utf-8")
+
 class Municipio(models.Model):
     nombre = models.CharField(max_length=40)
     departamento = models.ForeignKey('Departamento',null=False, blank=False, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{}'.format(self.nombre).encode("utf-8")
 
