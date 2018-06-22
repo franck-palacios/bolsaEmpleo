@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% block content %}
-    <a class="btn btn-primary" href="{% url 'aspirante:aspirante_create'%}">Nuevo</a>
+    <a class="btn btn-primary" href="{% url 'aspirante:crear_aspirante_user'%}">Nuevo</a>
     <br>
     <br>
     <table class="table table-bordered">
@@ -19,12 +19,12 @@
     {% if object_list %}
     {% for aspirante in object_list %}
     <tr>
-        <td>{{ aspirante.primer_nombre }}</td>
-        <td>{{ aspirante.primer_apellido }}</td>
-        <td>{{ aspirante.genero }}</td>
-        <td>{{ aspirante.fecha_nacimiento }}</td>
-        <td>{{ aspirante.dui }}</td>
-        <td>{{ aspirante.telefono }}</td>s
+        <td>{{ aspirante.aspiNombres }}</td>
+        <td>{{ aspirante.aspiApellidos }}</td>
+        <td>{{ aspirante.aspiGenero }}</td>
+        <td>{{ aspirante.aspiNacimiento }}</td>
+        <td>{{ aspirante.aspiDui }}</td>
+        <td>{{ aspirante.aspiTelefono }}</td>s
         <td>
         <a class="btn btn-primary" href="{% url 'aspirante:aspirante_editar' aspirante.id%}">Editar</a>
         <a class="btn btn-danger" href="{% url 'aspirante:aspirante_eliminar' aspirante.id %}">Eliminar</a>

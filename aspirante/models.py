@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models
 from administrator.models import Departamento, Municipio, Area_Trabajo, Puesto
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Congreso(models.Model):
@@ -12,25 +13,25 @@ class Congreso(models.Model):
     aspirante = models.ForeignKey('Aspirante', null=True, blank=True, on_delete=models.CASCADE)
 
 class Aspirante(models.Model):
-    primer_nombre = models.CharField(max_length=20)
-    segundo_nombre = models.CharField(max_length=20)
-    primer_apellido = models.CharField(max_length=20)
-    segundo_apellido = models.CharField(max_length=20)
-    genero = models.CharField(max_length=1)
-    fecha_nacimiento = models.DateField()
-    dui = models.CharField(max_length=10)
-    nit = models.CharField(max_length=17)
-    nup = models.CharField(max_length=12)
+    aspiNombres = models.CharField(max_length=50, null=False)
+    aspiApellidos = models.CharField(max_length=50, null=False)
+    aspiGenero = models.CharField(max_length=1, null=False)
+    #aspiNacionalidad = models.CharField(max_length=30, null=False)
+    aspiNacimiento = models.DateField(null=False)
+    aspiCorreo = models.EmailField(max_length=60, null=False)
+    aspiDui = models.CharField(max_length=9, null=False)
+    aspiPasaporte = models.CharField(max_length=20, null=False)
+    aspiNit = models.CharField(max_length=14)
+    aspiNup = models.CharField(max_length=12)
     direccion = models.CharField(max_length=150)
-    telefono = models.CharField(max_length=8)
-    #numero_casa = models.IntegerField()#quitar
-    correo = models.EmailField(max_length=60)
-    #facebook = models.CharField(max_length=150)#quitar
-    #twitter = models.CharField(max_length=150)#quitar
+    aspiTelefono = models.CharField(max_length=8)
+    aspiPaso = models.IntegerField(null=False, default=1)
+    username = models.ForeignKey(User,  null=False, blank=False)
     departamento = models.ForeignKey(Departamento, null=False, blank=False)
     municipio = models.ForeignKey(Municipio, null=False, blank=False)
+
     def __str__(self):
-        return '{} {}'.format(self.primer_nombre, self.primer_apellido)
+        return '{}'.format(self.aspiNombres)
 
 class Exp_Laboral(models.Model):
     nombre_empresa = models.CharField(max_length=50)

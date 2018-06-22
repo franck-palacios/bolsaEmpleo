@@ -2,11 +2,11 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from  django.core.urlresolvers import reverse_lazy
 from aspirante.forms import CongresoForm, AspiranteForm, ExperienciaLaboralForm, \
     HabilidadTecnicaForm, LibroForm, LogroForm, RecomendacionForm, CertificacionForm, \
-    ConocimientoAcademicoForm
+    ConocimientoAcademicoForm, UserForm
 
 from  django.views.generic import ListView, CreateView, UpdateView, DeleteView
 # Create your views here.
@@ -79,6 +79,33 @@ class AspiranteDelete(DeleteView):
     model = Aspirante
     template_name = 'aspirante/aspirante/aspirante_delete.html'
     success_url = reverse_lazy('aspirante:aspirante_list')
+
+class CrearAspirante(CreateView):
+    model = Aspirante
+    template_name = 'aspirante/aspirante/aspirante_form.html'
+    form_class = AspiranteForm
+    second_form_class = UserForm
+    success_url = reverse_lazy('aspirante:aspirante_list')
+
+    def get_context_data(self, **kwargs):
+        context = super(CrearAspirante, self).get_context_data(**kwargs)
+        if 'form' not in context:
+            context['form'] = self.form_class(self.request.GET)
+        if 'form2' not in context:
+            context['form2'] = self.second_form_class(self.request.GET)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object
+        form = self.form_class(request.POST)
+        form2 = self.second_form_class(request.POST)
+        if form.is_valid() and form2.is_valid():
+            aspirante = form.save(commit=False)
+            aspirante.username = form2.save()
+            aspirante.save()
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return self.render_to_response(self.get_context_data(form=form, form2=form2))
 
 ################# EXPERIENCIA LABORAL ######################
 

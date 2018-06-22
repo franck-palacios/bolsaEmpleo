@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 from django import forms
 from aspirante.models import Congreso, Aspirante, Exp_Laboral, Habilidad_Tecnica, Libro, \
     Logro, Recomendacion, Certificacion, Conoc_Academico
+from django.contrib.auth.models import User
 class CongresoForm(forms.ModelForm):
     class Meta:
         model=Congreso
@@ -25,67 +26,69 @@ class CongresoForm(forms.ModelForm):
             'aspirante': forms.Select(attrs={'class': 'form-control'})
         }
 
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields =[
+            'username',
+            'email',
+            'password'
+        ]
+        labels={
+            'username':'Nombre de Usuario',
+            'email': 'Correo Electronico',
+            'password': 'Contrasenia'
+        }
+        widgets={
+            'username':forms.TextInput(attrs={'class': 'form-control'}),
+            'email':forms.EmailInput(attrs={'class': 'form-control'}),
+            'password':forms.PasswordInput(attrs={'class': 'form-control'})
+        }
+
 class AspiranteForm (forms.ModelForm):
     class Meta:
         model = Aspirante
         fields=[
-            'primer_nombre',
-            'segundo_nombre',
-            'primer_apellido',
-            'segundo_apellido',
-            'genero',
-            'fecha_nacimiento',
-            'dui',
-            'nit',
-            'nup',
-            'direccion',
-            'telefono',
-            #'numero_casa',
-            'correo',
-            #'facebook',
-            #'twitter',
+            'aspiNombres',
+            'aspiApellidos',
+            'aspiGenero',
+            #'aspiNacionalidad',
+            'aspiNacimiento',
+            #'aspiCorreo',
+            'aspiDui',
+            'aspiPasaporte',
+            'aspiNit',
+            'aspiNup',
+            'aspiTelefono',
             'departamento',
             'municipio',
         ]
         labels={
-            'primer_nombre':'Primer Nombre',
-            'segundo_nombre':'Segundo Nombre',
-            'primer_apellido': 'Primer Apellido',
-            'segundo_apellido': 'Segundo Apellido',
-            'genero': 'Genero',
-            'fecha_nacimiento': 'Fecha de Nacimiento',
-            'dui': 'DUI',
-            'nit':'NIT',
-            'nup': 'NUP',
-            'direccion':'Direccion',
-            'telefono':'Telefono',
-            #'numero_casa':'Numero de Casa',
-            'correo': 'Correo Electronico',
+            'aspiNombres':'Nombres',
+            'aspiApellidos':'Apellidos',
+            'aspiGenero': 'Genero',
+            'aspiNacimiento': 'Fecha de Nacimiento',
+            'aspiDui': 'DUI',
+            'aspiPasaporte': 'Pasaporte',
+            'aspiNit':'NIT',
+            'aspiNup': 'NUP',
+            'aspiTelefono':'Telefono',
+            #'correo': 'Correo Electronico',
             'departamento':'Departamento',
             'municipio':'Municipio'
-            #'facebook': 'Facebook',
-            #'twitter': 'Twitter'
         }
         widgets={
-            'primer_nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'segundo_nombre': forms.TextInput(attrs={'class': 'form-control'}),
-            'primer_apellido': forms.TextInput(attrs={'class': 'form-control'}),
-            'segundo_apellido': forms.TextInput(attrs={'class': 'form-control'}),
-            #OPCIONES:[('F', 'Femenino'),
-             #         ('M', 'Masculino')]
-            'genero': forms.Select(choices=[('F','Femenino'),('M','Masculino')],attrs={'class': 'form-control'}),
-            'fecha_nacimiento': forms.DateInput(attrs={'class': 'form-control'}),
-            'dui': forms.TextInput(attrs={'class': 'form-control'}),
-            'nit': forms.TextInput(attrs={'class': 'form-control'}),
-            'nup': forms.TextInput(attrs={'class': 'form-control'}),
-            'direccion': forms.TextInput(attrs={'class': 'form-control'}),
-            'telefono': forms.TextInput(attrs={'class': 'form-control'}),
-            #'numero_casa': forms.NumberInput(attrs={'class': 'form-control'}),
-            'correo': forms.EmailInput(attrs={'class': 'form-control'}),
+            'aspiNombres': forms.TextInput(attrs={'class': 'form-control'}),
+            'aspiApellidos': forms.TextInput(attrs={'class': 'form-control'}),
+            'aspiGenero': forms.Select(choices=[('F','Femenino'),('M','Masculino')],attrs={'class': 'form-control'}),
+            'aspiNacimiento': forms.DateInput(attrs={'class': 'form-control'}),
+            'aspiDui': forms.TextInput(attrs={'class': 'form-control'}),
+            'aspiPasaporte': forms.TextInput(attrs={'class': 'form-control'}),
+            'aspiNit': forms.TextInput(attrs={'class': 'form-control'}),
+            'aspiNup': forms.TextInput(attrs={'class': 'form-control'}),
+            'aspiTelefono': forms.TextInput(attrs={'class': 'form-control'}),
             'departamento': forms.Select(attrs={'class': 'form-control'}),
             'municipio': forms.Select(attrs={'class': 'form-control'})
-            #'facebook': forms.TextInput(attrs={'class': 'form-control'}),
-            #'twitter': forms.TextInput(attrs={'class': 'form-control'})
         }
 
 class ExperienciaLaboralForm(forms.ModelForm):

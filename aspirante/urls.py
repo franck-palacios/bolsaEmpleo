@@ -8,7 +8,8 @@ from aspirante.views import congreso_view, congreso_list, congreso_edit, congres
         LogroList, LogroCreate, LogroUpdate, LogroDelete, \
         RecomendacionList, RecomendacionCreate, RecomendacionUpdate, RecomendacionDelete, \
         CertificacionList, CertificacionCreate, CertificacionUpdate, CertificacionDelete, \
-        ConocAcademicoList, ConocAcademicoCreate, ConocAcademicoUpdate, ConocAcademicoDelete
+        ConocAcademicoList, ConocAcademicoCreate, ConocAcademicoUpdate, ConocAcademicoDelete, \
+        CrearAspirante
 
 urlpatterns = [
         url(r'^$', views.index, name='index'),
@@ -22,6 +23,8 @@ urlpatterns = [
         url(r'^create_aspirante$', AspiranteCreate.as_view(), name='aspirante_create'),
         url(r'^edit_aspirante/(?P<pk>\d+)/$', AspiranteUpdate.as_view(), name='aspirante_editar'),
         url(r'^delete_aspirante/(?P<pk>\d+)/$', AspiranteDelete.as_view(), name='aspirante_eliminar'),
+
+        url(r'^create_aspirante_user$', CrearAspirante.as_view(), name='crear_aspirante_user'),
 
         url(r'^list_experiencia$', ExpLaboralList.as_view(), name='exp_laboral_list'),
         url(r'^create_exp_laboral$', ExpeLaboralCreate.as_view(), name='exp_laboral_create'),
