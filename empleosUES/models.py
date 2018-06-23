@@ -12,7 +12,7 @@ from django.db import models
 
 class Agencias(models.Model):
     agenciaid = models.AutoField(db_column='AgenciaID', primary_key=True)  # Field name made lowercase.
-    cuentaid = models.IntegerField(db_column='CuentaID')  # Field name made lowercase.
+    cuentaid = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='CuentaID')  # Field name made lowercase.
     agenombre = models.CharField(db_column='AgeNombre', unique=True, max_length=100)  # Field name made lowercase.
     agecorreo = models.CharField(db_column='AgeCorreo', unique=True, max_length=50)  # Field name made lowercase.
     agetelefono = models.CharField(db_column='AgeTelefono', max_length=8)  # Field name made lowercase.
@@ -33,7 +33,7 @@ class Areas(models.Model):
 
 class Aspirantes(models.Model):
     aspiranteid = models.AutoField(db_column='AspiranteID', primary_key=True)  # Field name made lowercase.
-    cuentaid = models.IntegerField(db_column='CuentaID')  # Field name made lowercase.
+    cuentaid = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='CuentaID')  # Field name made lowercase.
     lugarid = models.ForeignKey('Lugares', models.DO_NOTHING, db_column='LugarID')  # Field name made lowercase.
     aspinombres = models.CharField(db_column='AspiNombres', max_length=50)  # Field name made lowercase.
     aspiapellidos = models.CharField(db_column='AspiApellidos', max_length=50)  # Field name made lowercase.
@@ -142,7 +142,7 @@ class Delegaciones(models.Model):
 
 class Empresas(models.Model):
     empresaid = models.AutoField(db_column='EmpresaID', primary_key=True)  # Field name made lowercase.
-    cuentaid = models.IntegerField(db_column='CuentaID')  # Field name made lowercase.
+    cuentaid = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='CuentaID')  # Field name made lowercase.
     emprenombre = models.CharField(db_column='EmpreNombre', unique=True, max_length=50)  # Field name made lowercase.
     emprecorreo = models.CharField(db_column='EmpreCorreo', unique=True, max_length=50)  # Field name made lowercase.
     empretelefono = models.CharField(db_column='EmpreTelefono', max_length=8)  # Field name made lowercase.
@@ -286,7 +286,7 @@ class Lugares(models.Model):
 
 class Mensajes(models.Model):
     mensajeid = models.AutoField(db_column='MensajeID', primary_key=True)  # Field name made lowercase.
-    cuentaid = models.IntegerField(db_column='CuentaID', blank=True, null=True)  # Field name made lowercase.
+    cuentaid = models.ForeignKey('AuthUser', models.DO_NOTHING, db_column='CuentaID', blank=True, null=True)  # Field name made lowercase.
     mentitulo = models.CharField(db_column='MenTitulo', max_length=100)  # Field name made lowercase.
     mensaje = models.CharField(db_column='Mensaje', max_length=250)  # Field name made lowercase.
     menfecha = models.DateTimeField(db_column='MenFecha')  # Field name made lowercase.
