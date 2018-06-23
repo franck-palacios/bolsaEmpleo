@@ -1,6 +1,43 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.contrib import admin
+from empleosUES.models import Agencias, Areas, Aspirantes, Aspirantesconocimientos, Aspiranteshabilidades, Aspirantesidiomas, Candidatos, Conocimientos, Conocimientostipos, \
+    Delegaciones, Empresas, Escritos, Escritostipos, Evaluaciones, Evaluacionesrespuestas, Examenes, Experiencias, Funciones, Habilidades, \
+    Idiomas, Logros, Lugares, Mensajes, Niveles, Ofertas, Participaciones, Perfiles, Perfilesareas, Perfilesconocimientos, Perfileshabilidades,\
+    Perfilesidiomas, Perfileslugares, Perfilespuestos, Plazas, Preguntas, Puestos, Recomendaciones, Respuestas
 
-# Register your models here.
+admin.site.register(Agencias)
+admin.site.register(Areas)
+admin.site.register(Aspirantes)
+admin.site.register(Aspirantesconocimientos)
+admin.site.register(Aspiranteshabilidades)
+admin.site.register(Aspirantesidiomas)
+admin.site.register(Candidatos)
+admin.site.register(Conocimientos)
+admin.site.register(Conocimientostipos)
+admin.site.register(Delegaciones)
+admin.site.register(Empresas)
+admin.site.register(Escritos)
+admin.site.register(Escritostipos)
+admin.site.register(Evaluaciones)
+admin.site.register(Evaluacionesrespuestas)
+admin.site.register(Examenes)
+admin.site.register(Experiencias)
+admin.site.register(Funciones)
+admin.site.register(Habilidades)
+admin.site.register(Idiomas)
+admin.site.register(Logros)
+admin.site.register(Lugares)
+admin.site.register(Mensajes)
+admin.site.register(Niveles)
+admin.site.register(Ofertas)
+admin.site.register(Participaciones)
+admin.site.register(Perfiles)
+admin.site.register(Perfilesareas)
+admin.site.register(Perfilesconocimientos)
+admin.site.register(Perfileshabilidades)
+admin.site.register(Perfilesidiomas)
+admin.site.register(Perfileslugares)
+admin.site.register(Perfilespuestos)
+admin.site.register(Plazas)
+admin.site.register(Preguntas)
+admin.site.register(Recomendaciones)
+admin.site.register(Respuestas)

@@ -82,9 +82,9 @@ class Aspirantesidiomas(models.Model):
     aspiranteid = models.ForeignKey(Aspirantes, models.DO_NOTHING, db_column='AspiranteID')  # Field name made lowercase.
     idiomaid = models.ForeignKey('Idiomas', models.DO_NOTHING, db_column='IdiomaID')  # Field name made lowercase.
     nivelconverid = models.ForeignKey('Niveles', models.DO_NOTHING, db_column='NivelConverID')  # Field name made lowercase.
-    nivelescuid = models.ForeignKey('Niveles', models.DO_NOTHING, db_column='NivelEscuID')  # Field name made lowercase.
-    nivelescriid = models.ForeignKey('Niveles', models.DO_NOTHING, db_column='NivelEscriID')  # Field name made lowercase.
-    nivellectuid = models.ForeignKey('Niveles', models.DO_NOTHING, db_column='NivelLectuID')  # Field name made lowercase.
+    nivelescuid = models.ForeignKey('Niveles', models.DO_NOTHING, db_column='NivelEscuID', related_name='idioma2')  # Field name made lowercase.
+    nivelescriid = models.ForeignKey('Niveles', models.DO_NOTHING, db_column='NivelEscriID', related_name='nivel3')  # Field name made lowercase.
+    nivellectuid = models.ForeignKey('Niveles', models.DO_NOTHING, db_column='NivelLectuID', related_name='nivel2')  # Field name made lowercase.
 
     class Meta:
         managed = False
