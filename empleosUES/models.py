@@ -21,6 +21,9 @@ class Agencias(models.Model):
         managed = False
         db_table = 'Agencias'
 
+    def __str__(self):
+        return self.agenombre
+
 
 class Areas(models.Model):
     areaid = models.AutoField(db_column='AreaID', primary_key=True)  # Field name made lowercase.
@@ -29,6 +32,9 @@ class Areas(models.Model):
     class Meta:
         managed = False
         db_table = 'Areas'
+
+    def __str__(self):
+        return self.areanombre
 
 
 class Aspirantes(models.Model):
@@ -52,6 +58,9 @@ class Aspirantes(models.Model):
         managed = False
         db_table = 'Aspirantes'
 
+    def __str__(self):
+        return self.aspinombres
+
 
 class Aspirantesconocimientos(models.Model):
     aspiranteconocimientoid = models.AutoField(db_column='AspiranteConocimientoID', primary_key=True)  # Field name made lowercase.
@@ -64,6 +73,9 @@ class Aspirantesconocimientos(models.Model):
         managed = False
         db_table = 'AspirantesConocimientos'
 
+    def __str__(self):
+        return self.aspiranteconocimientoid
+
 
 class Aspiranteshabilidades(models.Model):
     aspirantehabilidadid = models.AutoField(db_column='AspiranteHabilidadID', primary_key=True)  # Field name made lowercase.
@@ -75,6 +87,9 @@ class Aspiranteshabilidades(models.Model):
         managed = False
         db_table = 'AspirantesHabilidades'
         unique_together = (('aspiranteid', 'habilidadid'),)
+
+    def __str__(self):
+        return self.aspirantehabilidadid
 
 
 class Aspirantesidiomas(models.Model):
@@ -91,6 +106,9 @@ class Aspirantesidiomas(models.Model):
         db_table = 'AspirantesIdiomas'
         unique_together = (('aspiranteid', 'idiomaid'),)
 
+    def __str__(self):
+        return self.aspiranteidiomaid
+
 
 class Candidatos(models.Model):
     candidatoid = models.AutoField(db_column='CandidatoID', primary_key=True)  # Field name made lowercase.
@@ -105,6 +123,9 @@ class Candidatos(models.Model):
         db_table = 'Candidatos'
         unique_together = (('aspiranteid', 'ofertaid'),)
 
+    def __str__(self):
+        return self.candidatoid
+
 
 class Conocimientos(models.Model):
     conocimientoid = models.AutoField(db_column='ConocimientoID', primary_key=True)  # Field name made lowercase.
@@ -117,6 +138,9 @@ class Conocimientos(models.Model):
         db_table = 'Conocimientos'
         unique_together = (('areaid', 'conocimientotipoid', 'cononombre'),)
 
+    def __str__(self):
+        return self.cononombre
+
 
 class Conocimientostipos(models.Model):
     conocimientotipoid = models.AutoField(db_column='ConocimientoTipoID', primary_key=True)  # Field name made lowercase.
@@ -126,6 +150,8 @@ class Conocimientostipos(models.Model):
         managed = False
         db_table = 'ConocimientosTipos'
 
+    def __str__(self):
+        return self.conocimientotipo
 
 class Delegaciones(models.Model):
     delegacionid = models.AutoField(db_column='DelegacionID', primary_key=True)  # Field name made lowercase.
@@ -139,6 +165,9 @@ class Delegaciones(models.Model):
         managed = False
         db_table = 'Delegaciones'
 
+    def __str__(self):
+        return self.delegacionid
+
 
 class Empresas(models.Model):
     empresaid = models.AutoField(db_column='EmpresaID', primary_key=True)  # Field name made lowercase.
@@ -150,6 +179,9 @@ class Empresas(models.Model):
     class Meta:
         managed = False
         db_table = 'Empresas'
+
+    def __str__(self):
+        return self.emprenombre
 
 
 class Escritos(models.Model):
@@ -165,6 +197,9 @@ class Escritos(models.Model):
         managed = False
         db_table = 'Escritos'
 
+    def __str__(self):
+        return self.escrinombre
+
 
 class Escritostipos(models.Model):
     escritotipoid = models.AutoField(db_column='EscritoTipoID', primary_key=True)  # Field name made lowercase.
@@ -173,6 +208,9 @@ class Escritostipos(models.Model):
     class Meta:
         managed = False
         db_table = 'EscritosTipos'
+
+    def __str__(self):
+        return self.escritipo
 
 
 class Evaluaciones(models.Model):
@@ -186,6 +224,9 @@ class Evaluaciones(models.Model):
     class Meta:
         managed = False
         db_table = 'Evaluaciones'
+
+    def __str__(self):
+        return self.evaluacionid
 
 
 class Evaluacionesrespuestas(models.Model):
@@ -201,6 +242,9 @@ class Evaluacionesrespuestas(models.Model):
         managed = False
         db_table = 'EvaluacionesRespuestas'
 
+    def __str__(self):
+        return self.evaluacionrespuestaid
+
 
 class Examenes(models.Model):
     examenid = models.AutoField(db_column='ExamenID', primary_key=True)  # Field name made lowercase.
@@ -213,6 +257,9 @@ class Examenes(models.Model):
         managed = False
         db_table = 'Examenes'
         unique_together = (('agenciaid', 'empresaid', 'exanombre'),)
+
+    def __str__(self):
+        return self.exanombre
 
 
 class Experiencias(models.Model):
@@ -230,6 +277,9 @@ class Experiencias(models.Model):
         managed = False
         db_table = 'Experiencias'
 
+    def __str__(self):
+        return self.experienciaid
+
 
 class Funciones(models.Model):
     funcionid = models.AutoField(db_column='FuncionID', primary_key=True)  # Field name made lowercase.
@@ -239,6 +289,9 @@ class Funciones(models.Model):
     class Meta:
         managed = False
         db_table = 'Funciones'
+
+    def __str__(self):
+        return self.funcion
 
 
 class Habilidades(models.Model):
@@ -251,6 +304,9 @@ class Habilidades(models.Model):
         db_table = 'Habilidades'
         unique_together = (('areaid', 'habinombre'),)
 
+    def __str__(self):
+        return self.habinombre
+
 
 class Idiomas(models.Model):
     idiomaid = models.AutoField(db_column='IdiomaID', primary_key=True)  # Field name made lowercase.
@@ -259,6 +315,9 @@ class Idiomas(models.Model):
     class Meta:
         managed = False
         db_table = 'Idiomas'
+
+    def __str__(self):
+        return self.idinombre
 
 
 class Logros(models.Model):
@@ -272,6 +331,9 @@ class Logros(models.Model):
         managed = False
         db_table = 'Logros'
 
+    def __str__(self):
+        return self.logronombre
+
 
 class Lugares(models.Model):
     lugarid = models.AutoField(db_column='LugarID', primary_key=True)  # Field name made lowercase.
@@ -282,6 +344,9 @@ class Lugares(models.Model):
         managed = False
         db_table = 'Lugares'
         unique_together = (('lugarpadreid', 'lugarnombre'),)
+
+    def __str__(self):
+        return self.lugarnombre
 
 
 class Mensajes(models.Model):
@@ -296,6 +361,9 @@ class Mensajes(models.Model):
         managed = False
         db_table = 'Mensajes'
 
+    def __str__(self):
+        return self.mentitulo
+
 
 class Niveles(models.Model):
     nivelid = models.AutoField(db_column='NivelID', primary_key=True)  # Field name made lowercase.
@@ -305,6 +373,9 @@ class Niveles(models.Model):
     class Meta:
         managed = False
         db_table = 'Niveles'
+
+    def __str__(self):
+        return self.nivelnombre
 
 
 class Ofertas(models.Model):
@@ -322,6 +393,9 @@ class Ofertas(models.Model):
         managed = False
         db_table = 'Ofertas'
 
+    def __str__(self):
+        return self.ofetipo
+
 
 class Participaciones(models.Model):
     participacionid = models.AutoField(db_column='ParticipacionID', primary_key=True)  # Field name made lowercase.
@@ -335,6 +409,9 @@ class Participaciones(models.Model):
         managed = False
         db_table = 'Participaciones'
 
+    def __str__(self):
+        return self.partinombre
+
 
 class Perfiles(models.Model):
     perfilid = models.AutoField(db_column='PerfilID', primary_key=True)  # Field name made lowercase.
@@ -346,6 +423,9 @@ class Perfiles(models.Model):
         managed = False
         db_table = 'Perfiles'
         unique_together = (('empresaid', 'pernombre'),)
+
+    def __str__(self):
+        return self.pernombre
 
 
 class Perfilesareas(models.Model):
@@ -361,6 +441,9 @@ class Perfilesareas(models.Model):
         db_table = 'PerfilesAreas'
         unique_together = (('perfilid', 'areaid'),)
 
+    def __str__(self):
+        return self.perfilareaid
+
 
 class Perfilesconocimientos(models.Model):
     perfilid = models.ForeignKey(Perfiles, models.DO_NOTHING, db_column='PerfilID', primary_key=True)  # Field name made lowercase.
@@ -370,6 +453,9 @@ class Perfilesconocimientos(models.Model):
         managed = False
         db_table = 'PerfilesConocimientos'
         unique_together = (('perfilid', 'conocimientoid'),)
+
+    def __str__(self):
+        return self.perfilid
 
 
 class Perfileshabilidades(models.Model):
@@ -383,6 +469,9 @@ class Perfileshabilidades(models.Model):
         db_table = 'PerfilesHabilidades'
         unique_together = (('perfilid', 'habilidadid'),)
 
+    def __str__(self):
+        return self.perfilhabilidadid
+
 
 class Perfilesidiomas(models.Model):
     perfilidiomaid = models.AutoField(db_column='PerfilIdiomaID', primary_key=True)  # Field name made lowercase.
@@ -395,6 +484,9 @@ class Perfilesidiomas(models.Model):
         managed = False
         db_table = 'PerfilesIdiomas'
 
+    def __str__(self):
+        return self.perfilidiomaid
+
 
 class Perfileslugares(models.Model):
     perfilid = models.ForeignKey(Perfiles, models.DO_NOTHING, db_column='PerfilID', primary_key=True)  # Field name made lowercase.
@@ -404,6 +496,9 @@ class Perfileslugares(models.Model):
         managed = False
         db_table = 'PerfilesLugares'
         unique_together = (('perfilid', 'lugarid'),)
+
+    def __str__(self):
+        return self.perfilid
 
 
 class Perfilespuestos(models.Model):
@@ -417,6 +512,9 @@ class Perfilespuestos(models.Model):
         managed = False
         db_table = 'PerfilesPuestos'
         unique_together = (('perfilid', 'puestoid'),)
+
+    def __str__(self):
+        return self.perfilpuestoid
 
 
 class Plazas(models.Model):
@@ -434,6 +532,9 @@ class Plazas(models.Model):
         managed = False
         db_table = 'Plazas'
 
+    def __str__(self):
+        return self.platipo
+
 
 class Preguntas(models.Model):
     preguntaid = models.AutoField(db_column='PreguntaID', primary_key=True)  # Field name made lowercase.
@@ -445,6 +546,9 @@ class Preguntas(models.Model):
         managed = False
         db_table = 'Preguntas'
 
+    def __str__(self):
+        return self.preenunciado
+
 
 class Puestos(models.Model):
     puestoid = models.AutoField(db_column='PuestoID', primary_key=True)  # Field name made lowercase.
@@ -455,6 +559,9 @@ class Puestos(models.Model):
         managed = False
         db_table = 'Puestos'
         unique_together = (('areaid', 'puesnombre'),)
+
+    def __str__(self):
+        return self.puesnombre
 
 
 class Recomendaciones(models.Model):
@@ -469,6 +576,9 @@ class Recomendaciones(models.Model):
         managed = False
         db_table = 'Recomendaciones'
 
+    def __str__(self):
+        return self.reconombre
+
 
 class Respuestas(models.Model):
     respuestaid = models.AutoField(db_column='RespuestaID', primary_key=True)  # Field name made lowercase.
@@ -479,6 +589,9 @@ class Respuestas(models.Model):
     class Meta:
         managed = False
         db_table = 'Respuestas'
+
+    def __str__(self):
+        return self.resenunciado
 
 
 class AuthGroup(models.Model):
@@ -525,6 +638,9 @@ class AuthUser(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_user'
+
+    def __str__(self):
+        return self.username
 
 
 class AuthUserGroups(models.Model):

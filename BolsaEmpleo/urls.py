@@ -26,5 +26,5 @@ urlpatterns = [
     url(r'^usuario/', include('usuario.urls', namespace="usuario")),
     url(r'^login/', login, {'template_name':'login.html'}, name='login'),
     url(r'^evaluacion/', include('evaluacion.urls', namespace="evaluacion")),
-    url(r'^$', index),
+    url(r'^$', admin.site.urls),
 ]
