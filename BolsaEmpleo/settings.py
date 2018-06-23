@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'BolsaEmpleo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', #driver to DB(mysql)
-        'NAME': 'bolsa_empleo', #name to DB
-        'USER': 'bad115', #user to DB
-        'PASSWORD': 'bolsa_empleo', #pass to DB
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'NAME': 'bolsaTrabajo', #name to DB
+        'USER': 'gpo10', #user to DB
+        'PASSWORD': 'django', #pass to DB
+        'HOST': '25.2.42.15',   # Or an IP Address that your DB is hosted on
         'PORT': '3306', #port to DB
         'STORAGE_ENGINE': 'INNODB',
     }
